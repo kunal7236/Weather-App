@@ -127,37 +127,39 @@ flutter build appbundle --release
 
 Ready to use? Download the pre-built APK files directly:
 
+> 🔢 **Version Information**: All APK files include version `1.2.0` (build 3) embedded in both filename and app metadata for easy tracking and updates.
+
 ### 📱 Available APK Files
 
 | APK File                       | Architecture | File Size | Device Compatibility           | Recommended Use                           |
 | ------------------------------ | ------------ | --------- | ------------------------------ | ----------------------------------------- |
-| **weather-app-arm7.apk**       | ARM 32-bit   | 12.2 MB   | Most Android devices (2012+)   | ✅ **Best Choice** - Widest compatibility |
-| **weather-app-arm64.apk**      | ARM 64-bit   | 12.7 MB   | Modern Android devices (2014+) | 🔥 High performance devices               |
-| **weather-app-x64.apk**        | x86 64-bit   | 12.8 MB   | Intel-based Android devices    | 💻 Emulators & Intel tablets              |
-| **weather-app-compressed.apk** | Universal    | 26.0 MB   | All Android devices            | 📦 Single file for all devices            |
+| **weather-app-v1.2.0-arm7.apk**       | ARM 32-bit   | 12.2 MB   | Most Android devices (2012+)   | ✅ **Best Choice** - Widest compatibility |
+| **weather-app-v1.2.0-arm64.apk**      | ARM 64-bit   | 12.7 MB   | Modern Android devices (2014+) | 🔥 High performance devices               |
+| **weather-app-v1.2.0-x64.apk**        | x86 64-bit   | 12.8 MB   | Intel-based Android devices    | 💻 Emulators & Intel tablets              |
+| **weather-app-v1.2.0-universal.apk** | Universal    | 26.0 MB   | All Android devices            | 📦 Single file for all devices            |
 
 ### 🎯 Which APK Should You Choose?
 
-#### 🌟 **Recommended: weather-app-arm7.apk (12.2 MB)**
+#### 🌟 **Recommended: weather-app-v1.2.0-arm7.apk (12.2 MB)**
 
 - **Best for most users** - Works on virtually all Android devices
 - **Smallest file size** - Faster download and installation
 - **Universal compatibility** - Supports both 32-bit and 64-bit ARM devices
 - **Device coverage** - 95%+ of Android devices worldwide
 
-#### ⚡ **For Modern Devices: weather-app-arm64.apk (12.7 MB)**
+#### ⚡ **For Modern Devices: weather-app-v1.2.0-arm64.apk (12.7 MB)**
 
 - **Better performance** on 64-bit devices
 - **Optimized** for newer Android phones (2014+)
 - **Recommended if** your device is from 2014 or later
 
-#### 💻 **For Intel Devices: weather-app-x64.apk (12.8 MB)**
+#### 💻 **For Intel Devices: weather-app-v1.2.0-x64.apk (12.8 MB)**
 
 - **Specifically for** Intel-based Android devices
 - **Android emulators** (BlueStacks, Android Studio)
 - **Intel tablets** and specialized devices
 
-#### 📦 **Universal Option: weather-app-compressed.apk (26.0 MB)**
+#### 📦 **Universal Option: weather-app-v1.2.0-universal.apk (26.0 MB)**
 
 - **One APK for all** device types
 - **Larger file size** but guaranteed compatibility
@@ -177,7 +179,7 @@ Ready to use? Download the pre-built APK files directly:
 
 **Option 3: When in Doubt**
 
-- Download **weather-app-arm7.apk** - it works on 95% of devices!
+- Download **weather-app-v1.2.0-arm7.apk** - it works on 95% of devices!
 
 ### 📲 Installation Instructions
 
@@ -187,7 +189,7 @@ Ready to use? Download the pre-built APK files directly:
 4. **Tap** "Install" when prompted
 5. **Launch** the Weather App and enjoy!
 
-> 💡 **Pro Tip**: Start with `weather-app-arm7.apk` - it's the smallest and most compatible option!
+> 💡 **Pro Tip**: Start with `weather-app-v1.2.0-arm7.apk` - it's the smallest and most compatible option!
 
 ## �📱 Usage
 
