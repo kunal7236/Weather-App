@@ -131,11 +131,11 @@ Ready to use? Download the pre-built APK files directly:
 
 ### 📱 Available APK Files
 
-| APK File                       | Architecture | File Size | Device Compatibility           | Recommended Use                           |
-| ------------------------------ | ------------ | --------- | ------------------------------ | ----------------------------------------- |
-| **weather-app-v1.2.0-arm7.apk**       | ARM 32-bit   | 12.2 MB   | Most Android devices (2012+)   | ✅ **Best Choice** - Widest compatibility |
-| **weather-app-v1.2.0-arm64.apk**      | ARM 64-bit   | 12.7 MB   | Modern Android devices (2014+) | 🔥 High performance devices               |
-| **weather-app-v1.2.0-x64.apk**        | x86 64-bit   | 12.8 MB   | Intel-based Android devices    | 💻 Emulators & Intel tablets              |
+| APK File                             | Architecture | File Size | Device Compatibility           | Recommended Use                           |
+| ------------------------------------ | ------------ | --------- | ------------------------------ | ----------------------------------------- |
+| **weather-app-v1.2.0-arm7.apk**      | ARM 32-bit   | 12.2 MB   | Most Android devices (2012+)   | ✅ **Best Choice** - Widest compatibility |
+| **weather-app-v1.2.0-arm64.apk**     | ARM 64-bit   | 12.7 MB   | Modern Android devices (2014+) | 🔥 High performance devices               |
+| **weather-app-v1.2.0-x64.apk**       | x86 64-bit   | 12.8 MB   | Intel-based Android devices    | 💻 Emulators & Intel tablets              |
 | **weather-app-v1.2.0-universal.apk** | Universal    | 26.0 MB   | All Android devices            | 📦 Single file for all devices            |
 
 ### 🎯 Which APK Should You Choose?
