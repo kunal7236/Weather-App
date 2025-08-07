@@ -33,9 +33,6 @@ android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
-    // Set custom APK name
-    project.archivesBaseName = "weather-app"
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -75,16 +72,18 @@ android {
         }
         release {
             signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
         }
     }
 
-    // Enable APK splitting only for release builds
+    // Enable APK splitting for different architectures
     splits {
         abi {
-            enable gradle.startParameter.taskNames.any { it.contains('Release') }
+            enable true
             reset()
             include 'arm64-v8a', 'armeabi-v7a', 'x86_64'
-            universalApk false
+            universalApk false  // Only create split APKs, no universal APK
         }
     }
 }
