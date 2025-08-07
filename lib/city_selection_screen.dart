@@ -85,14 +85,9 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.location_city,
-                    size: 80,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  const SizedBox(height: 24),
+                  //const SizedBox(height: 15),
                   Text(
-                    'Welcome to Weather App',
+                    'Weather App',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -100,9 +95,9 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 40),
                   Text(
-                    'Enter your city name to get started',
+                    'Enter the city name to get started',
                     style: TextStyle(
                       fontSize: 18,
                       color: Theme.of(context)
@@ -127,7 +122,7 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
                             controller: _cityController,
                             decoration: InputDecoration(
                               labelText: 'City Name',
-                              hintText: 'e.g., London, New York',
+                              hintText: 'New Delhi',
                               prefixIcon: const Icon(Icons.location_on),
                               border: const OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
@@ -179,7 +174,7 @@ class _CitySelectionScreenState extends State<CitySelectionScreen> {
                   ),
                   const SizedBox(height: 32),
                   Text(
-                    'You can change your city anytime in the weather screen',
+                    'You can change your city anytime.',
                     style: TextStyle(
                       fontSize: 14,
                       color: Theme.of(context)

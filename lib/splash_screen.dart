@@ -67,12 +67,6 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.contain,
             ),
             const SizedBox(height: 32),
-            // Icon(
-            //   Icons.wb_sunny,
-            //   size: 80,
-            //   color: Theme.of(context).primaryColor,
-            // ),
-            // const SizedBox(height: 24),
             Text(
               'Weather App',
               style: TextStyle(
