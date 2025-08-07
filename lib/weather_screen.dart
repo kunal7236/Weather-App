@@ -5,9 +5,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:weather_app/Hourly_forecast_item.dart';
 import 'package:weather_app/additonal_info_item.dart';
+import 'package:weather_app/city_selection_screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/secret.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -18,20 +20,57 @@ class WeatherScreen extends StatefulWidget {
 
 class _WeatherScreenState extends State<WeatherScreen> {
   late Future<Map<String, dynamic>> weather;
+  String? currentCity;
+
   Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
-      String cityName = 'Ranchi';
+      final prefs = await SharedPreferences.getInstance();
+      String cityName = prefs.getString('selected_city') ?? 'Ranchi';
+      setState(() {
+        currentCity = cityName;
+      });
+
       final res = await http.get(
         Uri.parse(
             'http://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=$openWeatherAPI'),
       );
       final data = jsonDecode(res.body);
       if (data['cod'] != '200') {
-        throw 'An unexpected error occured';
+        throw 'An unexpected error occurred';
       }
       return data;
     } on Exception catch (e) {
       throw e.toString();
+    }
+  }
+
+  Future<void> _changeCity() async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Change City'),
+        content: const Text('Do you want to select a new city?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: const Text('Change'),
+          ),
+        ],
+      ),
+    );
+
+    if (result == true) {
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const CitySelectionScreen(),
+          ),
+        );
+      }
     }
   }
 
@@ -45,9 +84,19 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Weather App',
-          style: TextStyle(fontSize:32 ,fontWeight: FontWeight.bold),
+        title: Column(
+          children: [
+            const Text(
+              'Weather App',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            if (currentCity != null)
+              Text(
+                currentCity!,
+                style: const TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.normal),
+              ),
+          ],
         ),
         centerTitle: true,
         actions: [
@@ -58,6 +107,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
               });
             },
             icon: const Icon(Icons.refresh),
+            tooltip: 'Refresh',
+          ),
+          IconButton(
+            onPressed: _changeCity,
+            icon: const Icon(Icons.location_city),
+            tooltip: 'Change City',
           ),
         ],
       ),
@@ -73,10 +128,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
           final data = snapshot.data!;
           final currentWeather = data['list'][0];
-          final currentTemp = (currentWeather['main']['temp']-273).toStringAsFixed(0);
+          final currentTemp =
+              (currentWeather['main']['temp'] - 273).toStringAsFixed(0);
           final currentSky = currentWeather['weather'][0]['main'];
           final currentPressure = currentWeather['main']['pressure'];
-          final currentWindspeed = (currentWeather['wind']['speed']*3.6).toStringAsFixed(0);
+          final currentWindspeed =
+              (currentWeather['wind']['speed'] * 3.6).toStringAsFixed(0);
           final currentHumidity = currentWeather['main']['humidity'];
           return Padding(
             padding: const EdgeInsets.all(16.0),
@@ -126,7 +183,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                 ),
 
-              //  const SizedBox(height: 20),
+                //  const SizedBox(height: 20),
 
                 const Text(
                   'Weather Forecast',
@@ -136,10 +193,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                 ),
 
-              //  const SizedBox(height: 16),
+                //  const SizedBox(height: 16),
                 SizedBox(
                   height: 120,
-                 
                   child: ListView.builder(
                     itemCount: 5,
                     scrollDirection: Axis.horizontal,
@@ -153,14 +209,15 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         icon: hourlySky == 'Clouds' || hourlySky == 'Rain'
                             ? Icons.cloud
                             : Icons.sunny,
-                        temp: (hourlyForecast['main']['temp']-273).toStringAsFixed(0),
+                        temp: (hourlyForecast['main']['temp'] - 273)
+                            .toStringAsFixed(0),
                         time: DateFormat('j').format(time),
                       );
                     },
                   ),
                 ),
 
-               // const SizedBox(height: 20),
+                // const SizedBox(height: 20),
 
                 const Text(
                   'Additional Information',
