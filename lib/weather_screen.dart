@@ -166,9 +166,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               ),
                               const SizedBox(height: 16),
                               Icon(
-                                  currentSky == 'Rain' || currentSky == 'Clouds'
-                                      ? Icons.cloud
-                                      : Icons.sunny,
+                                  currentSky == 'Rain'
+                                      ? Icons.thunderstorm
+                                      : (currentSky == 'Clouds'
+                                          ? Icons.cloud
+                                          : Icons.sunny),
                                   size: 64),
                               const SizedBox(height: 16),
                               Text(
@@ -206,9 +208,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       final time =
                           DateTime.parse(hourlyForecast['dt_txt'].toString());
                       return HourlyForecast(
-                        icon: hourlySky == 'Clouds' || hourlySky == 'Rain'
-                            ? Icons.cloud
-                            : Icons.sunny,
+                        icon: hourlySky == 'Rain'
+                            ? Icons.thunderstorm
+                            : (hourlySky == 'Clouds'
+                                ? Icons.cloud
+                                : Icons.sunny),
                         temp: (hourlyForecast['main']['temp'] - 273)
                             .toStringAsFixed(0),
                         time: DateFormat('j').format(time),
