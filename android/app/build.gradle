@@ -70,15 +70,21 @@ android {
     }
 
     buildTypes {
+        debug {
+            // Debug builds use universal APK for compatibility
+        }
         release {
             signingConfig signingConfigs.release
         }
     }
 
-    // Custom APK naming
-    applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "weather-app-${variant.versionName}.apk"
+    // Enable APK splitting only for release builds
+    splits {
+        abi {
+            enable gradle.startParameter.taskNames.any { it.contains('Release') }
+            reset()
+            include 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+            universalApk false
         }
     }
 }
