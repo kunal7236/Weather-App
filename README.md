@@ -9,6 +9,7 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 ## ✨ Features
 
 ### 🌟 Core Features
+
 - **Real-time Weather Data**: Fetches current weather information using OpenWeather API
 - **City Selection**: Easy city selection with persistent storage
 - **Local Storage**: Remembers your selected city using SharedPreferences
@@ -17,6 +18,7 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 - **Responsive Design**: Optimized for different screen sizes
 
 ### 📊 Weather Information Displayed
+
 - **Current Temperature**: Real-time temperature with weather conditions
 - **Humidity**: Current humidity percentage
 - **Wind Speed**: Wind speed in appropriate units
@@ -25,6 +27,7 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 - **Additional Info**: Extended weather details for comprehensive information
 
 ### 💾 Smart Features
+
 - **First-time Setup**: Intuitive city selection for new users
 - **Data Persistence**: Saves your preferences locally
 - **Easy City Change**: Quick city switching from the main screen
@@ -33,23 +36,27 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 ## 📸 Screenshots
 
 ### Splash Screen
+
 <img src="screenshots/splash_screen.png" alt="Splash Screen" width="300"/>
 
-*Beautiful branded splash screen with dark theme*
+_Beautiful branded splash screen with dark theme_
 
 ### City Selection
+
 <img src="screenshots/city_selection_screen.png" alt="City Selection Screen" width="300"/>
 
-*Clean and intuitive city selection interface*
+_Clean and intuitive city selection interface_
 
 ### Weather Display
+
 <img src="screenshots/weather_screen.png" alt="Weather Screen" width="300"/>
 
-*Comprehensive weather information display*
+_Comprehensive weather information display_
 
 ## 🛠️ Technical Features
 
 ### 🏗️ Architecture
+
 - **Flutter Framework**: Cross-platform mobile development
 - **Material Design 3**: Modern UI components and theming
 - **SharedPreferences**: Local data persistence
@@ -57,6 +64,7 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 - **State Management**: Efficient state handling with StatefulWidget
 
 ### 🔐 Security & Distribution
+
 - **Signed APK**: Production-ready signed application
 - **Internet Permissions**: Proper Android manifest configuration
 - **Secure Storage**: Local data stored in app's private space
@@ -64,6 +72,7 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Flutter SDK (3.32.8 or later)
 - Dart SDK (3.8.1 or later)
 - Android Studio or VS Code
@@ -72,25 +81,30 @@ A beautiful and intuitive Flutter weather application that provides real-time we
 ### Installation
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/kunal7236/Weather-App.git
 cd weather_app
 ```
 
 2. **Install dependencies**
+
 ```bash
 flutter pub get
 ```
 
 3. **Setup API Key**
+
    - Get your free API key from [OpenWeather](https://openweathermap.org/api)
    - Open `lib/secret.dart`
    - Replace `YOUR_API_KEY` with your actual API key:
+
    ```dart
    const openWeatherAPIKey = 'your_actual_api_key_here';
    ```
 
 4. **Run the application**
+
 ```bash
 flutter run
 ```
@@ -98,16 +112,84 @@ flutter run
 ### Building for Release
 
 **Build APK:**
+
 ```bash
 flutter build apk --release
 ```
 
 **Build App Bundle (for Play Store):**
+
 ```bash
 flutter build appbundle --release
 ```
 
-## 📱 Usage
+## � Download APK
+
+Ready to use? Download the pre-built APK files directly:
+
+### 📱 Available APK Files
+
+| APK File                       | Architecture | File Size | Device Compatibility           | Recommended Use                           |
+| ------------------------------ | ------------ | --------- | ------------------------------ | ----------------------------------------- |
+| **weather-app-arm7.apk**       | ARM 32-bit   | 12.2 MB   | Most Android devices (2012+)   | ✅ **Best Choice** - Widest compatibility |
+| **weather-app-arm64.apk**      | ARM 64-bit   | 12.7 MB   | Modern Android devices (2014+) | 🔥 High performance devices               |
+| **weather-app-x64.apk**        | x86 64-bit   | 12.8 MB   | Intel-based Android devices    | 💻 Emulators & Intel tablets              |
+| **weather-app-compressed.apk** | Universal    | 26.0 MB   | All Android devices            | 📦 Single file for all devices            |
+
+### 🎯 Which APK Should You Choose?
+
+#### 🌟 **Recommended: weather-app-arm7.apk (12.2 MB)**
+
+- **Best for most users** - Works on virtually all Android devices
+- **Smallest file size** - Faster download and installation
+- **Universal compatibility** - Supports both 32-bit and 64-bit ARM devices
+- **Device coverage** - 95%+ of Android devices worldwide
+
+#### ⚡ **For Modern Devices: weather-app-arm64.apk (12.7 MB)**
+
+- **Better performance** on 64-bit devices
+- **Optimized** for newer Android phones (2014+)
+- **Recommended if** your device is from 2014 or later
+
+#### 💻 **For Intel Devices: weather-app-x64.apk (12.8 MB)**
+
+- **Specifically for** Intel-based Android devices
+- **Android emulators** (BlueStacks, Android Studio)
+- **Intel tablets** and specialized devices
+
+#### 📦 **Universal Option: weather-app-compressed.apk (26.0 MB)**
+
+- **One APK for all** device types
+- **Larger file size** but guaranteed compatibility
+- **Use if unsure** about your device architecture
+
+### 🔍 How to Check Your Device Architecture
+
+**Option 1: Use an App**
+
+- Install "CPU-Z" or "AIDA64" from Play Store
+- Check the "CPU" or "Hardware" section
+
+**Option 2: Through Settings**
+
+- Go to Settings → About Phone → Processor
+- Look for "ARM", "ARM64", or "x86"
+
+**Option 3: When in Doubt**
+
+- Download **weather-app-arm7.apk** - it works on 95% of devices!
+
+### 📲 Installation Instructions
+
+1. **Download** your chosen APK file
+2. **Enable** "Install from Unknown Sources" in Android Settings
+3. **Open** the downloaded APK file
+4. **Tap** "Install" when prompted
+5. **Launch** the Weather App and enjoy!
+
+> 💡 **Pro Tip**: Start with `weather-app-arm7.apk` - it's the smallest and most compatible option!
+
+## �📱 Usage
 
 1. **First Launch**: Select your city when prompted
 2. **View Weather**: See comprehensive weather information
@@ -120,15 +202,16 @@ flutter build appbundle --release
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.1.2                    # HTTP requests for API calls
-  intl: ^0.19.0                   # Date/time formatting
-  shared_preferences: ^2.2.3      # Local data storage
-  cupertino_icons: ^1.0.6         # iOS-style icons
+  http: ^1.1.2 # HTTP requests for API calls
+  intl: ^0.19.0 # Date/time formatting
+  shared_preferences: ^2.2.3 # Local data storage
+  cupertino_icons: ^1.0.6 # iOS-style icons
 ```
 
 ## 🏃‍♂️ Development
 
 ### Project Structure
+
 ```
 lib/
 ├── main.dart                    # App entry point
@@ -141,6 +224,7 @@ lib/
 ```
 
 ### Key Features Implementation
+
 - **Persistent Storage**: SharedPreferences for city data
 - **API Integration**: HTTP package for weather data
 - **Navigation**: Flutter's navigation system
@@ -150,11 +234,15 @@ lib/
 ## 🔧 Configuration
 
 ### Android Permissions
+
 The app includes necessary permissions in `AndroidManifest.xml`:
+
 - `INTERNET`: For weather API calls
 
 ### Signing Configuration
+
 The app is configured for release signing with:
+
 - Custom keystore for security
 - Production-ready APK generation
 - No security warnings during installation
@@ -174,6 +262,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Kunal Kashyap**
+
 - GitHub: [@kunal7236](https://github.com/kunal7236)
 - Repository: [Weather-App](https://github.com/kunal7236/Weather-App)
 
